@@ -22,6 +22,20 @@ def max_area_opt1(height):
                 max_area = area
     return max_area
 
+# optimized solution #2 O(n)
+def max_area_opt2(height):
+    p1, p2 = 0, len(height)-1
+    max_area = 0
+    while(p1 < p2):
+        area = (p2-p1) * (min(height[p1], height[p2]))
+        max_area = max(max_area, area)
+
+        if height[p1] < height[p2]:
+            p1 += 1
+        else:
+            p2 -= 1
+    return max_area
+
 
 
 if __name__ == "__main__":
